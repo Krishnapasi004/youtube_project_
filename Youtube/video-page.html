@@ -1,0 +1,104 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+         #video-container{
+            max-width: 800px;
+         }
+
+    </style>
+</head>
+<body>
+    <div id="video-container">
+
+    </div>
+
+
+    <script>
+        const embedHtml = sessionStorage.getItem("videoEmbedHtml");
+    
+        if(embedHtml){
+            const playerContainer = document.createElement("div");
+            playerContainer.innerHTML = embedHtml;
+
+            document.getElementById("video-container").appendChild(playerContainer);
+        }
+        else{
+            alert("Video embed code not found");
+        }
+    </script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Player</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        #video-container {
+            max-width: 800px;
+            width: 100%;
+            background-color: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        #error-message {
+            color: #333;
+            font-size: 18px;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="video-container"></div>
+
+    <script>
+        // Retrieve the embed HTML from session storage
+        const embedHtml = sessionStorage.getItem("videoEmbedHtml");
+
+        const videoContainer = document.getElementById("video-container");
+
+        if (embedHtml) {
+            // Create a div to hold the video player
+            const playerContainer = document.createElement("div");
+            playerContainer.innerHTML = embedHtml;
+
+            // Append the video player to the container
+            videoContainer.appendChild(playerContainer);
+        } else {
+            // Display an error message if no embed HTML is found
+            videoContainer.innerHTML = `
+                <div id="error-message">
+                    No video embed code found. Please select a video to play.
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
